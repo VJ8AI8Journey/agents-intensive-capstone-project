@@ -1,103 +1,60 @@
-# Generative AI Document Intelligence System (Hierarchical Retrieval-Augmented Generation)
+# Generative AI Document Intelligence System (Hierarchical RAG)
 
-This project implements a hierarchical Retrieval-Augmented Generation (RAG) system for semantic document intelligence.  
-The system enables context-aware question answering over unstructured, multi-format documents by combining hierarchical embedding-based retrieval with LLM-powered response generation.
+Built a hierarchical Retrieval-Augmented Generation (RAG) system for semantic document intelligence and contextual question answering over unstructured multi-format documents.
 
-The objective was to design a scalable, modular architecture that bridges traditional information retrieval with modern generative AI workflows while reducing hallucination through structured grounding.
-
----
-
-## 🚀 System Overview
-
-The system follows a multi-layered architecture:
-
-1. Document Ingestion & OCR Processing  
-2. Hierarchical Chunking & Indexing  
-3. Multi-Stage Semantic Retrieval  
-4. Context Aggregation  
-5. LLM-Based Answer Generation  
-
-This hierarchical structure allows coarse-to-fine semantic filtering for improved retrieval precision and grounded generation.
+The system combines embedding-based retrieval with LLM-driven response generation using a structured, multi-stage retrieval pipeline.
 
 ---
 
-## 🏗 Architecture
+## 🚀 System Architecture
 
-### 1️⃣ Document Ingestion Layer
-
-- Multi-format document support (PDF, image, text)
-- OCR-based text extraction for scanned documents
-- Text normalization and preprocessing
-- Metadata extraction for document-level indexing
+### 1️⃣ Document Ingestion
+- Multi-format document support (PDF, images, text)
+- OCR-based text extraction
+- Text cleaning & normalization
+- Metadata extraction
 
 ---
 
-### 2️⃣ Hierarchical Chunking & Embedding
+### 2️⃣ Hierarchical Chunking & Indexing
+- Document-level segmentation
+- Section-aware grouping
+- Overlapping sliding-window chunking
+- Token-length optimization for LLM compatibility
+- Sentence-Transformer embedding generation
 
-Implemented a structured chunking pipeline with:
-
-- Document-level segmentation  
-- Section-aware grouping  
-- Overlapping sliding window chunking  
-- Token-length optimization for LLM input compatibility  
-
-Each chunk is encoded using Sentence-Transformer embeddings and stored in a vector index.
-
-This hierarchical organization preserves structural context while enabling scalable embedding-based retrieval.
+Chunks are stored in a vector index for semantic retrieval.
 
 ---
 
 ### 3️⃣ Multi-Stage Semantic Retrieval
 
-Designed a coarse-to-fine retrieval strategy:
+Implemented a coarse-to-fine retrieval pipeline:
 
-**Stage 1 – Document-Level Filtering**
-- Semantic similarity scoring to shortlist relevant documents
+- **Stage 1:** Document-level semantic filtering
+- **Stage 2:** Chunk-level similarity ranking
+- **Stage 3:** Context aggregation for answer grounding
 
-**Stage 2 – Chunk-Level Ranking**
-- Fine-grained embedding similarity search within selected documents
-- Top-k contextual evidence aggregation
-
-This reduces noise and improves answer relevance.
+This hierarchical retrieval reduces noise and improves answer relevance.
 
 ---
 
-### 4️⃣ Context Aggregation & Prompt Structuring
+### 4️⃣ Generation Layer (RAG)
 
-- Retrieved chunks merged with structural metadata
-- Evidence-organized prompt templates
-- Context window optimization for improved LLM grounding
-
----
-
-### 5️⃣ Generation Layer (RAG)
-
-- Retrieved context injected into LLM prompts
-- Context-aware answer generation
+- Retrieved evidence injected into structured prompts
+- LLM-based answer synthesis
 - Prompt engineering to reduce hallucination
-- Separation of retrieval and generation modules for modular extensibility
+- Modular separation between retrieval and generation
 
 ---
 
-## 📊 Key Features
+## 📊 Key Capabilities
 
-- Hierarchical Retrieval-Augmented Generation (RAG)
+- Hierarchical RAG architecture
 - Embedding-based semantic search
-- Multi-stage coarse-to-fine retrieval
-- Context-aware document chunking
-- Scalable vector indexing
-- Structured prompt grounding
-- Modular retrieval-generation separation
-
----
-
-## 🧠 Design Objectives
-
-- Improve factual grounding using structured retrieval
-- Reduce hallucination through contextual evidence injection
-- Enable semantic search beyond keyword matching
-- Maintain scalability across large document collections
-- Support extensibility for conversational memory integration
+- Coarse-to-fine retrieval strategy
+- Context-aware document understanding
+- Grounded LLM response generation
 
 ---
 
@@ -108,40 +65,14 @@ This reduces noise and improves answer relevance.
 - Large Language Models (LLMs)
 - OCR Processing
 - Vector Similarity Search
-- NumPy / Pandas
-
----
-
-## 📈 Challenges Addressed
-
-- Processing heterogeneous document formats
-- Preserving semantic coherence during chunking
-- Designing hierarchical retrieval pipelines
-- Selecting optimal context for LLM grounding
-- Balancing retrieval precision vs generation quality
 
 ---
 
 ## 🎯 Skills Demonstrated
 
 - Retrieval-Augmented Generation (RAG)
-- Hierarchical semantic retrieval design
-- Generative AI system architecture
-- Embedding-based indexing strategies
-- Prompt engineering & LLM integration
-- Document intelligence pipelines
-- Context optimization for large language models
-
----
-
-## 🔮 Future Improvements
-
-- Hybrid sparse + dense retrieval
-- Cross-encoder re-ranking
-- Conversational memory integration
-- Context compression & summarization
-- Latency and scalability benchmarking
-
----
-
-This project demonstrates practical implementation of a hierarchical generative AI system combining multi-stage semantic retrieval with LLM-based reasoning for scalable document intelligence applications.
+- Hierarchical semantic retrieval
+- Embedding-based indexing
+- Prompt engineering
+- LLM integration
+- Scalable document intelligence system design
